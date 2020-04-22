@@ -121,7 +121,11 @@ public class Main
         for (int i = 0; i <= total; i++)
         {
             Row currentRow = firstSheet.getRow(i);
-            itemIdlist.add(currentRow.getCell(0).getStringCellValue());
+            if (currentRow == null || currentRow.getCell(0) == null) {
+                break;
+            } else {
+                itemIdlist.add(currentRow.getCell(0).getStringCellValue());
+            }
         }
         workbook.close();
         inputStream.close();
